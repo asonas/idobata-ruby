@@ -2,11 +2,11 @@ require 'faraday'
 
 module Idobata
   class Client
-    def initialize(api_base)
+    def initialize(hook_url)
       default_header = {
         'User-Agent' => "Idobata / RubyBinding/#{Idobata::VERSION}"
       }
-      @conn = Faraday.new(api_base, headers: default_header) do |builder|
+      @conn = Faraday.new(hook_url, headers: default_header) do |builder|
         builder.request :url_encoded
         builder.adapter Faraday.default_adapter
       end

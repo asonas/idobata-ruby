@@ -4,20 +4,20 @@ module Idobata
   autoload(:Client, 'idobata/client')
   autoload(:Message, 'idobata/message')
 
-  @api_base = nil
+  @hook_url = nil
 
   class << self
     def client
-      @client ||= Client.new(@api_base)
+      @client ||= Client.new(@hook_url)
     end
 
-    def api_base=(new_value)
-      @api_base = new_value
+    def hook_url=(new_value)
+      @hook_url = new_value
       @client = nil
     end
 
-    def api_base
-      @api_base
+    def hook_url
+      @hook_url
     end
   end
 end
