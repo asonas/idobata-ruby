@@ -18,7 +18,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+require 'idobata'
+
+# set hook url
+Idobata.api_base = "https://idobata.io/hook/XXXXX"
+
+# plain text
+Idobata::Message.create(source: "Hello, Idobata!")
+
+# html format
+Idobata::Message.create(source: "<marquee>Hello, Idobata!</marquee>", format: :html)
+```
 
 ## Contributing
 
