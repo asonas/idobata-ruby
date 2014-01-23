@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["hzw1258@gmail.com"]
   spec.description   = %q{idobata is content free chat}
   spec.summary       = %q{Ruby bindings of Idobata}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/asonas/idobata-ruby"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
