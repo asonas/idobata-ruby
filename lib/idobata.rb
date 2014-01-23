@@ -3,6 +3,7 @@ require "idobata/version"
 module Idobata
   autoload(:Client, 'idobata/client')
   autoload(:Message, 'idobata/message')
+  autoload(:Support, 'idobata/support')
 
   @hook_url = nil
 
