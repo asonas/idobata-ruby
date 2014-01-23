@@ -22,7 +22,7 @@ Or install it yourself as:
 require 'idobata'
 
 # set hook url
-Idobata.hooK_url = "https://idobata.io/hook/XXXXX"
+Idobata.hook_url = "https://idobata.io/hook/XXXXX"
 
 # plain text
 Idobata::Message.create(source: "Hello, Idobata!")
