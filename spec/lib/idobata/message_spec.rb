@@ -41,5 +41,22 @@ describe Idobata::Message do
         expect(formatting_params[:source]).to match("<span class='label label-success'>DEPLOY</span>")
       end
     end
+
+    context "when specify multiple labels" do
+      let(:params) {
+        {
+          source: "hello idobata",
+          format: :html,
+          label: [
+            { type: :inverse, text: "Inverse" },
+            { type: :warning, text: "Warning" }
+          ]
+        }
+      }
+      subject(:formatting_params) { Idobata::Message.label_writer(params) }
+      it "should include span tags" do
+        expect(formatting_params[:source]).to match("<span class='label label-inverse'>Inverse</span> <span class='label label-warning'>Warning</span>")
+      end
+    end
   end
 end

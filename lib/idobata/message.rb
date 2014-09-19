@@ -6,12 +6,23 @@ module Idobata
     end
 
     def self.label_writer(params)
-      label = params[:label]
-      if label
+      labels =
+        if params[:label].nil?
+          []
+        elsif params[:label].respond_to?(:to_ary)
+          params[:label].to_ary || [params[:label]]
+        else
+          [params[:label]]
+        end
+
+      label_tags = labels.map do |label|
         type = label[:type] ? "label-#{label[:type]}" : ""
-        params[:source] = "<span class='label #{type}'>#{label[:text]}</span> #{params[:source]}"
-        params[:format] = :html unless params[:format] == :html
+        "<span class='label #{type}'>#{label[:text]}</span>"
       end
+
+      params[:source] = "#{label_tags.join(' ')} #{params[:source]}"
+      params[:format] = :html unless labels.empty?
+
       params
     end
   end
